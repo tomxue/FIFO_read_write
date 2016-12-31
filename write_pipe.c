@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
     memset(w_buf, '2', NUM);
 
-    if ((mkfifo(FIFO_SERVER, O_CREAT | O_EXCL | 0666) < 0) && (errno != EEXIST))
+    if ((mkfifo(FIFO_SERVER, 0666) < 0) && (errno != EEXIST))
         printf("cannot create fifoserver\n");
     if (fd == -1)
         if (errno == ENXIO)
