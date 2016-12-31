@@ -18,6 +18,7 @@ int main(int argc, char **argv)
     int r_size;
     int ret_size;
 
+    printf("Requir one argument and should be run as root account.\n");
     r_size = atoi(argv[1]);
     printf("required real read bytes %d\n", r_size);
     while (1) {
