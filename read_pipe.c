@@ -21,6 +21,10 @@ int main(int argc, char **argv)
     printf("Requir one argument and should be run as root account.\n");
     r_size = atoi(argv[1]);
     printf("required real read bytes %d\n", r_size);
+
+    if ((mkfifo(FIFO_SERVER, 0666) < 0) && (errno != EEXIST))
+        printf("cannot create fifoserver\n");
+
     while (1) {
         memset(r_buf, 0, sizeof(r_buf));
 //      fd = open(FIFO_SERVER, O_RDONLY | O_NONBLOCK, 0);

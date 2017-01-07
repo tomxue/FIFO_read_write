@@ -25,7 +25,12 @@ int main(int argc, char **argv)
             printf("open error; no reading process\n");
 
     // fd = open(FIFO_SERVER, O_WRONLY | O_NONBLOCK, 0);
-    //设置非阻塞标志
+    // 设置非阻塞标志
+    // http://man7.org/linux/man-pages/man7/fifo.7.html
+//       A process can open a FIFO in nonblocking mode.  In this case, opening
+//       for read-only will succeed even if no-one has opened on the write
+//       side yet and opening for write-only will fail with ENXIO (no such
+//       device or address) unless the other end has already been opened.
 
     fd=open(FIFO_SERVER, O_WRONLY, 0);
     //设置阻塞标志
