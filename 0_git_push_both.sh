@@ -7,4 +7,3 @@ git push origin --mirror
 
 echo ""
 git config -l | grep url
-git config -l | grep email
